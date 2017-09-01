@@ -1,0 +1,65 @@
+
+.form-box {
+    margin: 10% auto auto;
+    width: 500px;
+}
+
+.title {
+    text-align: center;
+    margin: auto auto 20px;
+}
+
+.my-form {
+    margin: auto;
+    width: 400px;
+}
+
+.my-form input {
+    width: 97%;
+    height: 25px;
+    margin: 10px 0;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.error-text {
+    margin-top: -8px;
+    font-size: 13px;
+}
+
+.box-result {
+    width: 80%;
+    min-height: 40px;
+    margin: 10px auto auto;
+    padding: 10px;
+}
+
+.but-submite {
+    display: block;
+    width: 120px;
+    height: 30px;
+    margin: auto;
+}
+
+.error {
+    border: 1px red solid;
+}
+
+.success {
+    border: 1px green solid;
+}
+
+.progress {
+    border: 1px blue solid;
+}
+
+.test-butts {
+    margin-left: 50px;
+    margin-top: 30px;
+}
+.test-butts-inner {
+    width: 100px;
+    height: 20px;
+    margin: 5px;
+    font-size: 12px;
+}

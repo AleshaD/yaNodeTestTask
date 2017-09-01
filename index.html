@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="YaTestTask">
+<head>
+    <meta charset="UTF-8">
+    <link href="main.css" rel="stylesheet">
+    <title>Yandex Test Task</title>
+
+    <script src="lib/angular.min.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+
+<div class="form-box" ng-controller="FormController">
+
+    <div class="title">Введите ФИО, email и номер телефона</div>
+
+    <form name="yaTestForm"
+          class="my-form" novalidate
+          ng-submit="MyForm.submit()">
+
+        <div ng-repeat="(key, value) in form">
+            <input name="{{key}}"
+                   type="{{value.type}}"
+                   pattern="{{value.pattern}}"
+                   required
+                   placeholder="{{value.placeholder}}"
+                   ng-model="value.value"
+                   ng-focus="focusInput(key)"
+                   ng-class="{error : !value.isValid}"
+                   ng-disabled="isWaitingResp"><br>
+            <div class="error-text" ng-show="yaTestForm.$submitted">
+                <span ng-show="yaTestForm[key].$error.required">{{value.requiredErrorText}}</span>
+                <span ng-show="yaTestForm[key].$error.pattern || yaTestForm[key].$error.email">{{value.inputErrorText}}</span>
+            </div>
+
+        </div>
+
+        <div class="{{'box-result ' + status}}">
+            <div ng-repeat="clarify in statusClarify">
+                <span>{{clarify}}</span>
+            </div>
+        </div>
+        <br>
+
+        <button class="but-submite" ng-disabled="isWaitingResp">
+            <span>Submit</span>
+        </button>
+
+    </form>
+
+    <div class="test-butts">
+        <span>Ответ:  </span>
+        <select class="test-butts-inner" ng-model="url">
+            <option value="responses/success.json">success</option>
+            <option value="responses/error.json">error</option>
+            <option value="responses/progress.json">progress</option>
+            <option value="responses/fail.json">fail</option>
+        </select>
+        <br>
+        <button class="test-butts-inner"
+                ng-click="setData()"
+                ng-disabled="isWaitingResp">
+            <span>Set Data</span>
+        </button>
+        <br>
+        <button class="test-butts-inner"
+                ng-click="getFormData()">
+            <span>Get Data</span>
+        </button>
+    </div>
+</div>
+
+</body>
+</html>
